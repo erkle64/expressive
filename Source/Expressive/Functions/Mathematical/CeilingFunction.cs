@@ -21,7 +21,7 @@ namespace Expressive.Functions.Mathematical
             }
             else if (value is decimal)
             {
-                return Math.Ceiling((decimal)value);
+                return (decimal)Math.Ceiling((double)value);
             }
             return Math.Ceiling(Convert.ToDouble(value));
         }

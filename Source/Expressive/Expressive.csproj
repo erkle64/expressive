@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net48</TargetFrameworks>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\ExpressiveStrongName.snk</AssemblyOriginatorKeyFile>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -26,6 +26,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <Configurations>Release;Debug</Configurations>
 	<PackageReadmeFile>NuGet.md</PackageReadmeFile>
+	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -39,15 +40,17 @@
       <PackagePath></PackagePath>
     </None>
     <None Include="..\ExpressiveStrongName.snk" Link="ExpressiveStrongName.snk" />
-	<None Include="..\..\Documentation\NuGet.md" Pack="true" PackagePath="NuGet.md"/>
+	<None Include="..\..\Documentation\NuGet.md" Pack="true" PackagePath="NuGet.md" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <Reference Include="System">
+      <HintPath>G:\SteamLibrary\steamapps\common\FOUNDRY\foundry_Data\Managed\System.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>G:\SteamLibrary\steamapps\common\FOUNDRY\foundry_Data\Managed\mscorlib.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

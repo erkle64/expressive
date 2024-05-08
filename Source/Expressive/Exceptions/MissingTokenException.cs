@@ -5,6 +5,7 @@ namespace Expressive.Exceptions
     /// <summary>
     /// Represents an error that is thrown when a missing token is detected inside an <see cref="Expression"/>.
     /// </summary>
+    [Serializable]
     public sealed class MissingTokenException : Exception
     {
         /// <summary>

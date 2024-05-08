@@ -5,6 +5,7 @@ namespace Expressive.Exceptions
     /// <summary>
     /// Represents an error that is thrown when a token is not recognised inside an <see cref="Expression"/>.
     /// </summary>
+    [Serializable]
     public sealed class UnrecognisedTokenException : Exception
     {
         /// <summary>

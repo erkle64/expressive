@@ -11,7 +11,7 @@ namespace Expressive.Helpers
         {
             if (s is String || s is char)
             {
-                return Decimal.Parse(s.ToString());
+                return Decimal.Parse(s.ToString(), System.Globalization.CultureInfo.InvariantCulture);
             }
 
             return s;
@@ -221,7 +221,7 @@ namespace Expressive.Helpers
                         case TypeCode.UInt64: return (Single)a + (UInt64)b;
                         case TypeCode.Single: return (Single)a + (Single)b;
                         case TypeCode.Double: return (Single)a + (Double)b;
-                        case TypeCode.Decimal: return Convert.ToDecimal(a) + (Decimal)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal(a, System.Globalization.CultureInfo.InvariantCulture) + (Decimal)b;
                     }
                     break;
 
@@ -239,7 +239,7 @@ namespace Expressive.Helpers
                         case TypeCode.UInt64: return (Double)a + (UInt64)b;
                         case TypeCode.Single: return (Double)a + (Single)b;
                         case TypeCode.Double: return (Double)a + (Double)b;
-                        case TypeCode.Decimal: return Convert.ToDecimal(a) + (Decimal)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal(a, System.Globalization.CultureInfo.InvariantCulture) + (Decimal)b;
                     }
                     break;
 
@@ -255,8 +255,8 @@ namespace Expressive.Helpers
                         case TypeCode.UInt32: return (Decimal)a + (UInt32)b;
                         case TypeCode.Int64: return (Decimal)a + (Int64)b;
                         case TypeCode.UInt64: return (Decimal)a + (UInt64)b;
-                        case TypeCode.Single: return (Decimal)a + Convert.ToDecimal(b);
-                        case TypeCode.Double: return (Decimal)a + Convert.ToDecimal(b);
+                        case TypeCode.Single: return (Decimal)a + Convert.ToDecimal(b, System.Globalization.CultureInfo.InvariantCulture);
+                        case TypeCode.Double: return (Decimal)a + Convert.ToDecimal(b, System.Globalization.CultureInfo.InvariantCulture);
                         case TypeCode.Decimal: return (Decimal)a + (Decimal)b;
                     }
                     break;
@@ -443,7 +443,7 @@ namespace Expressive.Helpers
                         case TypeCode.UInt64: return (Single)a / (UInt64)b;
                         case TypeCode.Single: return (Single)a / (Single)b;
                         case TypeCode.Double: return (Single)a / (Double)b;
-                        case TypeCode.Decimal: return Convert.ToDecimal(a) / (Decimal)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal(a, System.Globalization.CultureInfo.InvariantCulture) / (Decimal)b;
                     }
                     break;
 
@@ -460,7 +460,7 @@ namespace Expressive.Helpers
                         case TypeCode.UInt64: return (Double)a / (UInt64)b;
                         case TypeCode.Single: return (Double)a / (Single)b;
                         case TypeCode.Double: return (Double)a / (Double)b;
-                        case TypeCode.Decimal: return Convert.ToDecimal(a) / (Decimal)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal(a, System.Globalization.CultureInfo.InvariantCulture) / (Decimal)b;
                     }
                     break;
 
@@ -475,8 +475,8 @@ namespace Expressive.Helpers
                         case TypeCode.UInt32: return (Decimal)a / (UInt32)b;
                         case TypeCode.Int64: return (Decimal)a / (Int64)b;
                         case TypeCode.UInt64: return (Decimal)a / (UInt64)b;
-                        case TypeCode.Single: return (Decimal)a / Convert.ToDecimal(b);
-                        case TypeCode.Double: return (Decimal)a / Convert.ToDecimal(b);
+                        case TypeCode.Single: return (Decimal)a / Convert.ToDecimal(b, System.Globalization.CultureInfo.InvariantCulture);
+                        case TypeCode.Double: return (Decimal)a / Convert.ToDecimal(b, System.Globalization.CultureInfo.InvariantCulture);
                         case TypeCode.Decimal: return (Decimal)a / (Decimal)b;
                     }
                     break;
@@ -663,7 +663,7 @@ namespace Expressive.Helpers
                         case TypeCode.UInt64: return (Single)a * (UInt64)b;
                         case TypeCode.Single: return (Single)a * (Single)b;
                         case TypeCode.Double: return (Single)a * (Double)b;
-                        case TypeCode.Decimal: return Convert.ToDecimal(a) * (Decimal)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal(a, System.Globalization.CultureInfo.InvariantCulture) * (Decimal)b;
                     }
                     break;
 
@@ -680,7 +680,7 @@ namespace Expressive.Helpers
                         case TypeCode.UInt64: return (Double)a * (UInt64)b;
                         case TypeCode.Single: return (Double)a * (Single)b;
                         case TypeCode.Double: return (Double)a * (Double)b;
-                        case TypeCode.Decimal: return Convert.ToDecimal(a) * (Decimal)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal(a, System.Globalization.CultureInfo.InvariantCulture) * (Decimal)b;
                     }
                     break;
 
@@ -695,8 +695,8 @@ namespace Expressive.Helpers
                         case TypeCode.UInt32: return (Decimal)a * (UInt32)b;
                         case TypeCode.Int64: return (Decimal)a * (Int64)b;
                         case TypeCode.UInt64: return (Decimal)a * (UInt64)b;
-                        case TypeCode.Single: return (Decimal)a * Convert.ToDecimal(b);
-                        case TypeCode.Double: return (Decimal)a * Convert.ToDecimal(b);
+                        case TypeCode.Single: return (Decimal)a * Convert.ToDecimal(b, System.Globalization.CultureInfo.InvariantCulture);
+                        case TypeCode.Double: return (Decimal)a * Convert.ToDecimal(b, System.Globalization.CultureInfo.InvariantCulture);
                         case TypeCode.Decimal: return (Decimal)a * (Decimal)b;
                     }
                     break;
@@ -900,7 +900,7 @@ namespace Expressive.Helpers
                         case TypeCode.UInt64: return (Single)a - (UInt64)b;
                         case TypeCode.Single: return (Single)a - (Single)b;
                         case TypeCode.Double: return (Single)a - (Double)b;
-                        case TypeCode.Decimal: return Convert.ToDecimal(a) - (Decimal)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal(a, System.Globalization.CultureInfo.InvariantCulture) - (Decimal)b;
                     }
                     break;
 
@@ -917,7 +917,7 @@ namespace Expressive.Helpers
                         case TypeCode.UInt64: return (Double)a - (UInt64)b;
                         case TypeCode.Single: return (Double)a - (Single)b;
                         case TypeCode.Double: return (Double)a - (Double)b;
-                        case TypeCode.Decimal: return Convert.ToDecimal(a) - (Decimal)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal(a, System.Globalization.CultureInfo.InvariantCulture) - (Decimal)b;
                     }
                     break;
 
@@ -932,8 +932,8 @@ namespace Expressive.Helpers
                         case TypeCode.UInt32: return (Decimal)a - (UInt32)b;
                         case TypeCode.Int64: return (Decimal)a - (Int64)b;
                         case TypeCode.UInt64: return (Decimal)a - (UInt64)b;
-                        case TypeCode.Single: return (Decimal)a - Convert.ToDecimal(b);
-                        case TypeCode.Double: return (Decimal)a - Convert.ToDecimal(b);
+                        case TypeCode.Single: return (Decimal)a - Convert.ToDecimal(b, System.Globalization.CultureInfo.InvariantCulture);
+                        case TypeCode.Double: return (Decimal)a - Convert.ToDecimal(b, System.Globalization.CultureInfo.InvariantCulture);
                         case TypeCode.Decimal: return (Decimal)a - (Decimal)b;
                     }
                     break;
@@ -1120,7 +1120,7 @@ namespace Expressive.Helpers
                         case TypeCode.UInt64: return (Single)a % (UInt64)b;
                         case TypeCode.Single: return (Single)a % (Single)b;
                         case TypeCode.Double: return (Single)a % (Double)b;
-                        case TypeCode.Decimal: return Convert.ToDecimal(a) % (Decimal)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal(a, System.Globalization.CultureInfo.InvariantCulture) % (Decimal)b;
                     }
                     break;
 
@@ -1137,7 +1137,7 @@ namespace Expressive.Helpers
                         case TypeCode.UInt64: return (Double)a % (UInt64)b;
                         case TypeCode.Single: return (Double)a % (Single)b;
                         case TypeCode.Double: return (Double)a % (Double)b;
-                        case TypeCode.Decimal: return Convert.ToDecimal(a) % (Decimal)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal(a, System.Globalization.CultureInfo.InvariantCulture) % (Decimal)b;
                     }
                     break;
 
@@ -1152,8 +1152,8 @@ namespace Expressive.Helpers
                         case TypeCode.UInt32: return (Decimal)a % (UInt32)b;
                         case TypeCode.Int64: return (Decimal)a % (Int64)b;
                         case TypeCode.UInt64: return (Decimal)a % (UInt64)b;
-                        case TypeCode.Single: return (Decimal)a % Convert.ToDecimal(b);
-                        case TypeCode.Double: return (Decimal)a % Convert.ToDecimal(b);
+                        case TypeCode.Single: return (Decimal)a % Convert.ToDecimal(b, System.Globalization.CultureInfo.InvariantCulture);
+                        case TypeCode.Double: return (Decimal)a % Convert.ToDecimal(b, System.Globalization.CultureInfo.InvariantCulture);
                         case TypeCode.Decimal: return (Decimal)a % (Decimal)b;
                     }
                     break;

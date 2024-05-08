@@ -168,7 +168,7 @@ namespace Expressive
                             expressions.Add(this.CompileExpression(captiveTokens, minimumPrecedence: OperatorPrecedence.Minimum, variables: variables, isWithinFunction: true));
                             captiveTokens.Clear();
                         }
-                        else if (string.Equals(nextToken.CurrentToken, Context.ParameterSeparator.ToString(), StringComparison.Ordinal) && parenCount == 1)
+                        else if (string.Equals(nextToken.CurrentToken, Context.ParameterSeparator.ToString(CultureInfo.InvariantCulture), StringComparison.Ordinal) && parenCount == 1)
                         {
                             // TODO: Should we expect expressions to be null???
                             expressions.Add(this.CompileExpression(captiveTokens, minimumPrecedence: 0, variables: variables, isWithinFunction: true));
@@ -210,7 +210,7 @@ namespace Expressive
                         leftHandSide = new ConstantValueExpression(longValue);
                     }
                 }
-                else if (currentToken.CurrentToken.StartsWith("[") && currentToken.CurrentToken.EndsWith("]")) // or a variable?
+                else if (currentToken.CurrentToken.StartsWith("[", StringComparison.InvariantCulture) && currentToken.CurrentToken.EndsWith("]", StringComparison.InvariantCulture)) // or a variable?
                 {
                     CheckForExistingParticipant(leftHandSide, currentToken, isWithinFunction);
 
@@ -244,16 +244,16 @@ namespace Expressive
                     tokens.Dequeue();
                     leftHandSide = new ConstantValueExpression(null);
                 }
-                else if (currentToken.CurrentToken.StartsWith(Context.DateSeparator.ToString()) && currentToken.CurrentToken.EndsWith(Context.DateSeparator.ToString())) // or a date?
+                else if (currentToken.CurrentToken.StartsWith(Context.DateSeparator.ToString(CultureInfo.InvariantCulture), StringComparison.InvariantCulture) && currentToken.CurrentToken.EndsWith(Context.DateSeparator.ToString(CultureInfo.InvariantCulture), StringComparison.InvariantCulture)) // or a date?
                 {
                     CheckForExistingParticipant(leftHandSide, currentToken, isWithinFunction);
 
                     tokens.Dequeue();
 
-                    var dateToken = currentToken.CurrentToken.Replace(Context.DateSeparator.ToString(), "");
+                    var dateToken = currentToken.CurrentToken.Replace(Context.DateSeparator.ToString(CultureInfo.InvariantCulture), "");
 
                     // If we can't parse the date let's check for some known tags.
-                    if (!DateTime.TryParse(dateToken, out var date))
+                    if (!DateTime.TryParse(dateToken, CultureInfo.InvariantCulture, DateTimeStyles.None, out var date))
                     {
                         if (string.Equals("TODAY", dateToken, StringComparison.OrdinalIgnoreCase))
                         {
@@ -271,15 +271,15 @@ namespace Expressive
 
                     leftHandSide = new ConstantValueExpression(date);
                 }
-                else if ((currentToken.CurrentToken.StartsWith("'") && currentToken.CurrentToken.EndsWith("'")) ||
-                    (currentToken.CurrentToken.StartsWith("\"") && currentToken.CurrentToken.EndsWith("\"")))
+                else if ((currentToken.CurrentToken.StartsWith("'", StringComparison.InvariantCulture) && currentToken.CurrentToken.EndsWith("'", StringComparison.InvariantCulture)) ||
+                    (currentToken.CurrentToken.StartsWith("\"", StringComparison.InvariantCulture) && currentToken.CurrentToken.EndsWith("\"", StringComparison.InvariantCulture)))
                 {
                     CheckForExistingParticipant(leftHandSide, currentToken, isWithinFunction);
 
                     tokens.Dequeue();
                     leftHandSide = new ConstantValueExpression(CleanString(currentToken.CurrentToken.Substring(1, currentToken.Length - 2)));
                 }
-                else if (string.Equals(currentToken.CurrentToken, Context.ParameterSeparator.ToString(), StringComparison.Ordinal)) // Make sure we ignore the parameter separator
+                else if (string.Equals(currentToken.CurrentToken, Context.ParameterSeparator.ToString(CultureInfo.InvariantCulture), StringComparison.Ordinal)) // Make sure we ignore the parameter separator
                 {
                     if (!isWithinFunction)
                     {

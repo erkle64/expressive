@@ -13,7 +13,7 @@ namespace Expressive.Functions.Mathematical
         {
             this.ValidateParameterCount(parameters, 2, 2);
 
-            return Math.Round(Convert.ToDouble(parameters[0].Evaluate(Variables)), Convert.ToInt32(parameters[1].Evaluate(Variables)));
+            return Math.Round(Convert.ToDouble(parameters[0].Evaluate(Variables), System.Globalization.CultureInfo.InvariantCulture), Convert.ToInt32(parameters[1].Evaluate(Variables), System.Globalization.CultureInfo.InvariantCulture));
         }
 
         #endregion

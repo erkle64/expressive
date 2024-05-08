@@ -45,7 +45,7 @@ namespace Expressive.Functions.String
 
                 if (parameters.Length > 2)
                 {
-                    int start = Convert.ToInt32(parameters[2].Evaluate(Variables));
+                    int start = Convert.ToInt32(parameters[2].Evaluate(Variables), System.Globalization.CultureInfo.InvariantCulture);
                     return text.IndexOf(match, start, context.EqualityStringComparison);
                 }
                 else

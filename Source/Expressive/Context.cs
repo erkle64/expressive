@@ -187,7 +187,7 @@ namespace Expressive
             this.RegisterFunction(new CountFunction());
             this.RegisterFunction(new ExpFunction());
             this.RegisterFunction(new FloorFunction());
-            this.RegisterFunction(new IEEERemainderFunction());
+            //this.RegisterFunction(new IEEERemainderFunction());
             this.RegisterFunction(new Log10Function());
             this.RegisterFunction(new LogFunction());
             this.RegisterFunction(new PowFunction());

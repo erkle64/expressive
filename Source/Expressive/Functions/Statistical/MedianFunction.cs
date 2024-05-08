@@ -47,7 +47,7 @@ namespace Expressive.Functions.Statistical
                 return;
             }
 
-            decimalValues.Add(Convert.ToDecimal(value));
+            decimalValues.Add(Convert.ToDecimal(value, System.Globalization.CultureInfo.InvariantCulture));
         }
 
         private static decimal Median(IEnumerable<decimal> xs)

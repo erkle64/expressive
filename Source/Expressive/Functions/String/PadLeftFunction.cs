@@ -34,7 +34,7 @@ namespace Expressive.Functions.String
                 text = value.ToString();
             }
 
-            int totalLength = Convert.ToInt32(length);
+            int totalLength = Convert.ToInt32(length, System.Globalization.CultureInfo.InvariantCulture);
 
             var third = parameters[2].Evaluate(Variables);
             char character = ' ';

@@ -6,6 +6,7 @@ namespace Expressive.Exceptions
     /// <summary>
     /// Represents an error that is thrown when registering an <see cref="IFunction"/> and the name is already used.
     /// </summary>
+    [Serializable]
     public sealed class FunctionNameAlreadyRegisteredException : Exception
     {
         /// <summary>

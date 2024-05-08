@@ -12,7 +12,7 @@ namespace Expressive.Functions.Mathematical
         public override object Evaluate(IExpression[] parameters, Context context)
         {
             this.ValidateParameterCount(parameters, 0, 0);
-            return Math.PI;
+            return 3.1415926535897931;
         }
     }
 }
